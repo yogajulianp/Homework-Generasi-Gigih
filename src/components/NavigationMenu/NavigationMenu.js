@@ -1,13 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./NavigationMenu.css"
+import * as ROUTES from "../../constants/routes";
 
 const NavigationMenu = ()=> {
     return (
       <header className="NavigationMenu">
       <nav>
-        <ul>
-          <li>Home</li>
-          <li>Profile</li>
+        <ul className="link">
+            <Link to={ROUTES.HOME}> 
+                <li>Home</li> 
+            </Link>
+            <Link to={ROUTES.SIGN_UP}> 
+                <li>SignUp</li> 
+            </Link>
+          
         </ul>
       </nav>
     </header>
