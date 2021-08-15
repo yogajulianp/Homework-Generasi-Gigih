@@ -1,0 +1,10 @@
+.NavigationMenu {
+    width : 100%;
+    background: black;
+    color: white;
+    opacity: 0.60;
+
+    position: fixed;
+    top: 0;
+
+}
