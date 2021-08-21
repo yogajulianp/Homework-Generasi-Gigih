@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
+import { WEB_APP } from "../../constants/routes";
 //import { FirebaseContext } from "../../context/FirebaseContext";
 import {useAuth} from "../../context/AuthContext";
 import "./SignUp.css";
@@ -8,6 +10,7 @@ const SignUp = ()=>{
     const [password, setPassword] = useState("");
     //const { firebase } = useContext(FirebaseContext);
     //const context = useContext(contextValue)
+    const history = useHistory();
     const auth = useAuth();
 
     return (
@@ -15,7 +18,7 @@ const SignUp = ()=>{
             <form 
                 onSubmit={(event)=> {
                     event.preventDefault();
-                    auth.signup({email, password, callback: ()=> {} })
+                    auth.signup({email, password, callback: ()=> history.push(WEB_APP) })
                    /* firebase
                     //    .auth().createUserWithEmailAndPassword(email, password) .then(() => alert('sign up!')).catch((error)=> alert(error.message));   */
                     alert(email + " " + password)

@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch,  Route,} from "react-router-dom";
 import * as ROUTES from "./constants/routes";
-import logo from './logo.svg';
 import './App.css';
 import NavigationMenu from './components/NavigationMenu';
 import Hero from './components/Hero';
@@ -17,7 +16,7 @@ function App() {
 
         <Switch>
           <Route path={ROUTES.SIGN_UP} component={SignUp}/>
-          <PrivateRoute>
+          <PrivateRoute path= {ROUTES.WEB_APP}>
             <WebApp/>
           </PrivateRoute>
           <Route path={ROUTES.LOGIN} component={Login}/>
