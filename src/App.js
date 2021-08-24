@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import PrivateRoute from "./PrivateMenu";
 import PlayMenu from "./pages/PlayMenu";
 import {useAuth} from "./context/AuthContext";
+//import SearchBar from "./components/SearchBar";
 
 function App() {
   const {isLoading} = useAuth();
@@ -17,7 +18,7 @@ function App() {
     ) : (
     <Router>
         <NavigationMenu/>
-
+        
         <Switch>
           <Route path={ROUTES.SIGN_UP} component={SignUp}/>
           <PrivateRoute path= {ROUTES.Play_Menu}>

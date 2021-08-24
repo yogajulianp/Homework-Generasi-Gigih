@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./PlayMenu.css";
 
 //GET https://accounts.spotify.com/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&scope=user-read-private%20user-read-email&state=34fFs29kd09
@@ -17,14 +17,26 @@ http://localhost:3000/playmenu#access_token=BQCOtcKaG_jmaMRizWoIabj0O-bcDQ6W5Xqw
 const getReturnParamsSpotifyAuth = (hash) => {
     const stringAfterHash = hash.substring(1);
     const paramsInUrl = stringAfterHash.split("&");
-    const paramsSplitUp = paramsInUrl.reduce( (acc, currentValue) => {
+    const paramsSplitUp = paramsInUrl.reduce( (accumulater, currentValue) => {
+        console.log(currentValue);
         const [key, value] = currentValue.split("=");
-        acc[key] = value;
-        return acc;
+        accumulater[key] = value;
+        return accumulater;
     }, {});
+    return paramsSplitUp;
 };
 
+//{access_token, token_type, expirer_in}
 const PlayMenu = ()=> {
+    useEffect( ()=> {
+        if (window.location.hash) {
+            const {access_token, token_type, expires_in} = 
+            getReturnParamsSpotifyAuth(window.location.hash);
+            console.log({access_token, token_type, expires_in});
+        }
+    });
+
+
     const handleLogin = () => {
         window.location = `${spotify_authorize_endpoint}?client_id=${CLIENT_ID}&redirect_uri=${redirect_url_after_login}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
     }
