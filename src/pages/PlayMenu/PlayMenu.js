@@ -37,13 +37,13 @@ const PlayMenu = ()=> {
     });
 
 
-    const handleLogin = () => {
+    const handleLoginSpotify = () => {
         window.location = `${spotify_authorize_endpoint}?client_id=${CLIENT_ID}&redirect_uri=${redirect_url_after_login}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
     }
     return (
     <div className="tampilan"> 
         <h1>Welcome</h1> 
-        <button onClick={handleLogin}>Login ke Spotify</button>
+        <button onClick={handleLoginSpotify}>Login ke Spotify</button>
     </div>
     ) ;
 };

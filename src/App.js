@@ -21,11 +21,10 @@ function App() {
         
         <Switch>
           <Route path={ROUTES.SIGN_UP} component={SignUp}/>
+          <Route path={ROUTES.LOGIN} component={Login}/>
           <PrivateRoute path= {ROUTES.Play_Menu}>
             <PlayMenu/>
           </PrivateRoute>
-          
-          <Route path={ROUTES.LOGIN} component={Login}/>
           <Route path={ROUTES.HOME} component={Hero}/>
 
         </Switch>

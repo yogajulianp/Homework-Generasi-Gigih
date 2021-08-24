@@ -1,12 +1,14 @@
 import React, {useState} from "react";
 import "./Login.css";
-//import { useHistory } from "react-router-dom";
-//import {WEB_APP} from "../../constants/routes";
+import { useHistory } from "react-router-dom";
+import {Play_Menu} from "../../constants/routes";
+import { useAuth } from "../../context/AuthContext";
 
 const Login = ()=> {
     const [emailValue, setEmailValue] = useState("");
     const [passwordValue , setPasswordValue  ] = useState("");
-    //cont auth =useAuth();
+    const auth =useAuth();
+    let history = useHistory();
 
     return (
         <div className="container">
@@ -14,15 +16,11 @@ const Login = ()=> {
         
                 onSubmit={(event)=> {
                     event.preventDefault();
-                  //  firebase
-                   //     .auth()
-                   //     .createUserWithEmailAndPassword(email, password)
-                   //     .then(() => alert('sign up!'))
-                  //      .catch((error)=> alert(error.message));
-                        
-                 //  alert(email + " " + password)
-                  //  setEmail("");
-                  //  setPassword("");
+                    auth.signin( {
+                        email : emailValue,
+                        password: passwordValue,
+                        callback: () => history.push(Play_Menu),
+                    })
                 }}
             >
                 

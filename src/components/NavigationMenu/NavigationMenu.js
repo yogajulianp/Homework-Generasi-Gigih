@@ -22,7 +22,6 @@ const NavigationMenu = ()=> {
               </> 
             ) : (
             <>  
-          
               <Link to={ROUTES.SIGN_UP}> 
                 <li>SignUp</li> 
               </Link>
