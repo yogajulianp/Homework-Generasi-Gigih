@@ -14,6 +14,15 @@ const SCOPES_URL_PARAM = SCOPES.join(SPACE_LIMIT);
 http://localhost:3000/playmenu#access_token=BQCOtcKaG_jmaMRizWoIabj0O-bcDQ6W5Xqwa3yCYbRRZfAabIefaK_Us4ZkppjOZ6a01I6eo4rB-sxjO99RnkIs8ajqAZv6vb3tFBYwIzbF17qWs9r6VASuvTqLaiEtR__bo9OI1zIYNgEiFTlZ_9M6qTCTYEC1X_pL-4FZ62f-exm3qAhXd8FqwBoDNi6rvezCWQ9kuw&token_type=Bearer&expires_in=3600
 */
 
+const getReturnParamsSpotifyAuth = (hash) => {
+    const stringAfterHash = hash.substring(1);
+    const paramsInUrl = stringAfterHash.split("&");
+    const paramsSplitUp = paramsInUrl.reduce( (acc, currentValue) => {
+        const [key, value] = currentValue.split("=");
+        acc[key] = value;
+        return acc;
+    }, {});
+};
 
 const PlayMenu = ()=> {
     const handleLogin = () => {
