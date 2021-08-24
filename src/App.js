@@ -7,18 +7,23 @@ import Hero from './components/Hero';
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import PrivateRoute from "./PrivateMenu";
-import WebApp from "./pages/WebApp";
+import PlayMenu from "./pages/PlayMenu";
+import {useAuth} from "./context/AuthContext";
 
 function App() {
-  return (
+  const {isLoading} = useAuth();
+  return isLoading ? (
+    <h1> Mohon menunggu, sedang memproses...</h1> 
+    ) : (
     <Router>
         <NavigationMenu/>
 
         <Switch>
           <Route path={ROUTES.SIGN_UP} component={SignUp}/>
-          <PrivateRoute path= {ROUTES.WEB_APP}>
-            <WebApp/>
+          <PrivateRoute path= {ROUTES.Play_Menu}>
+            <PlayMenu/>
           </PrivateRoute>
+          
           <Route path={ROUTES.LOGIN} component={Login}/>
           <Route path={ROUTES.HOME} component={Hero}/>
 

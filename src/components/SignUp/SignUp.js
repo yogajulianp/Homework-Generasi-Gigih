@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
-import { WEB_APP } from "../../constants/routes";
+import { Play_Menu } from "../../constants/routes";
 //import { FirebaseContext } from "../../context/FirebaseContext";
 import {useAuth} from "../../context/AuthContext";
 import "./SignUp.css";
@@ -18,7 +18,7 @@ const SignUp = ()=>{
             <form 
                 onSubmit={(event)=> {
                     event.preventDefault();
-                    auth.signup({email, password, callback: ()=> history.push(WEB_APP) })
+                    auth.signup({email, password, callback: ()=> history.push(Play_Menu) })
                    /* firebase
                     //    .auth().createUserWithEmailAndPassword(email, password) .then(() => alert('sign up!')).catch((error)=> alert(error.message));   */
                     alert(email + " " + password)

@@ -15,8 +15,8 @@ const NavigationMenu = ()=> {
             </Link>
             {auth.user ? (
               <> 
-               <Link to={ROUTES.WEB_APP}> 
-                <li>WebApp</li> 
+               <Link to={ROUTES.Play_Menu}> 
+                <li>Play Menu</li> 
             </Link>
             <li onClick = { () => auth.signout()}>Sign Out</li>
               </> 
