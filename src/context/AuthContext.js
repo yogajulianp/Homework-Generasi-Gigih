@@ -91,7 +91,7 @@ function useProvideAuth() {
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, []);
+  }, [firebase]);
 
   // Return the user object and auth methods
   return {
